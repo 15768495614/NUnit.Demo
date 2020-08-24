@@ -186,11 +186,19 @@ namespace NUnit.Demo.Tests
         {
             get
             {
-                yield return new TestCaseData(1,2).Returns(3);
-                yield return new TestCaseData(1,3).Returns(4);
-                yield return new TestCaseData(1,4).Returns(5);
-                yield return new TestCaseData(1,5).Returns(6);
+                yield return new TestCaseData(1, 2).Returns(3);
+                yield return new TestCaseData(1, 3).Returns(4);
+                yield return new TestCaseData(1, 4).Returns(5);
+                yield return new TestCaseData(1, 5).Returns(6);
             }
+        }
+
+        [Test(Author = "梁灿林", Description = "")]
+
+        public void AddTest3([Values(1, 2)] int a, [Values(2, 1)] int b)
+        {
+            var result = Operate.Add(a, b);
+            Assert.That(result, Is.LessThanOrEqualTo(4));
         }
     }
 
